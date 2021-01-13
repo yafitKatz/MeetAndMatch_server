@@ -1,0 +1,36 @@
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Bl.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Bl.pdb
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dal.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dto.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dal.pdb
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dto.pdb
+C:\פרוייקט חיה ויפית\finalProject\Bl\obj\Debug\Bl.csprojAssemblyReference.cache
+C:\פרוייקט חיה ויפית\finalProject\Bl\obj\Debug\Bl.csproj.CoreCompileInputs.cache
+C:\פרוייקט חיה ויפית\finalProject\Bl\obj\Debug\Bl.csproj.CopyComplete
+C:\פרוייקט חיה ויפית\finalProject\Bl\obj\Debug\Bl.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\obj\Debug\Bl.pdb
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Bl.dll.config
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\EntityFramework.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\EntityFramework.SqlServer.dll
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dal.dll.config
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\Dto.dll.config
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\EntityFramework.xml
+C:\פרוייקט חיה ויפית\finalProject\Bl\bin\Debug\EntityFramework.SqlServer.xml
+C:\yafit\git_MeetAndMatch\finalProject\Bl\obj\Debug\BL.csprojAssemblyReference.cache
+C:\yafit\git_MeetAndMatch\finalProject\Bl\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\yafit\git_MeetAndMatch\finalProject\Bl\obj\Debug\Bl.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\obj\Debug\Bl.pdb
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Bl.dll.config
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Bl.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Bl.pdb
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dal.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dto.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\EntityFramework.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\EntityFramework.SqlServer.dll
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dal.pdb
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dal.dll.config
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dto.pdb
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\Dto.dll.config
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\EntityFramework.xml
+C:\yafit\git_MeetAndMatch\finalProject\Bl\bin\Debug\EntityFramework.SqlServer.xml
+C:\yafit\git_MeetAndMatch\finalProject\Bl\obj\Debug\BL.csproj.CopyComplete

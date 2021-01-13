@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="MeetMatchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="MatchMaker">
+          <Key>
+            <PropertyRef Name="matchMakerId" />
+          </Key>
+          <Property Name="matchMakerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="varchar" MaxLength="20" />
+          <Property Name="isRegistered" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Meetings">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" Nullable="false" />
+          <Property Name="matchMakerId" Type="int" />
+          <Property Name="firstParticipantId" Type="int" />
+          <Property Name="secondParticipantId" Type="int" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Participants">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstName" Type="varchar" MaxLength="50" />
+          <Property Name="lastName" Type="varchar" MaxLength="50" />
+          <Property Name="dateOfBirth" Type="datetime" />
+          <Property Name="gender" Type="varchar" MaxLength="10" />
+          <Property Name="status" Type="int" />
+          <Property Name="origin" Type="varchar" MaxLength="10" />
+          <Property Name="resume" Type="varchar" MaxLength="50" />
+          <Property Name="mail" Type="varchar" MaxLength="50" />
+          <Property Name="phone" Type="nchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusNum" />
+          </Key>
+          <Property Name="statusNum" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="statusDesc" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_Meetings_MatchMaker">
+          <End Role="MatchMaker" Type="Self.MatchMaker" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchMaker">
+              <PropertyRef Name="matchMakerId" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="matchMakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants">
+          <End Role="Participants" Type="Self.Participants" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="firstParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants1">
+          <End Role="Participants" Type="Self.Participants" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="secondParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants2">
+          <End Role="Participants" Type="Self.Participants" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meetings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="secondParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Participants" Type="Self.Participants" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusNum" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="MeetMatchModelStoreContainer">
+          <EntitySet Name="MatchMaker" EntityType="Self.MatchMaker" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meetings" EntityType="Self.Meetings" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Participants" EntityType="Self.Participants" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Meetings_MatchMaker" Association="Self.FK_Meetings_MatchMaker">
+            <End Role="MatchMaker" EntitySet="MatchMaker" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants" Association="Self.FK_Meetings_Participants">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants1" Association="Self.FK_Meetings_Participants1">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants2" Association="Self.FK_Meetings_Participants2">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_Status" Association="Self.FK_Participants_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="MeetMatchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="MatchMaker">
+          <Key>
+            <PropertyRef Name="matchMakerId" />
+          </Key>
+          <Property Name="matchMakerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="isRegistered" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Meetings" Relationship="Self.FK_Meetings_MatchMaker" FromRole="MatchMaker" ToRole="Meetings" />
+        </EntityType>
+        <EntityType Name="Meeting">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="matchMakerId" Type="Int32" />
+          <Property Name="firstParticipantId" Type="Int32" />
+          <Property Name="secondParticipantId" Type="Int32" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="MatchMaker" Relationship="Self.FK_Meetings_MatchMaker" FromRole="Meetings" ToRole="MatchMaker" />
+          <NavigationProperty Name="Participant" Relationship="Self.FK_Meetings_Participants" FromRole="Meetings" ToRole="Participants" />
+          <NavigationProperty Name="Participant1" Relationship="Self.FK_Meetings_Participants1" FromRole="Meetings" ToRole="Participants" />
+          <NavigationProperty Name="Participant2" Relationship="Self.FK_Meetings_Participants2" FromRole="Meetings" ToRole="Participants" />
+        </EntityType>
+        <EntityType Name="Participant">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateOfBirth" Type="DateTime" Precision="3" />
+          <Property Name="gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="Int32" />
+          <Property Name="origin" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="resume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="phone" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Meetings" Relationship="Self.FK_Meetings_Participants" FromRole="Participants" ToRole="Meetings" />
+          <NavigationProperty Name="Meetings1" Relationship="Self.FK_Meetings_Participants1" FromRole="Participants" ToRole="Meetings" />
+          <NavigationProperty Name="Meetings2" Relationship="Self.FK_Meetings_Participants2" FromRole="Participants" ToRole="Meetings" />
+          <NavigationProperty Name="Status1" Relationship="Self.FK_Participants_Status" FromRole="Participants" ToRole="Status" />
+        </EntityType>
+        <EntityType Name="Status">
+          <Key>
+            <PropertyRef Name="statusNum" />
+          </Key>
+          <Property Name="statusNum" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="statusDesc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Participants" Relationship="Self.FK_Participants_Status" FromRole="Status" ToRole="Participants" />
+        </EntityType>
+        <Association Name="FK_Meetings_MatchMaker">
+          <End Role="MatchMaker" Type="Self.MatchMaker" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchMaker">
+              <PropertyRef Name="matchMakerId" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="matchMakerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants">
+          <End Role="Participants" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="firstParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants1">
+          <End Role="Participants" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="secondParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Meetings_Participants2">
+          <End Role="Participants" Type="Self.Participant" Multiplicity="0..1" />
+          <End Role="Meetings" Type="Self.Meeting" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Participants">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Meetings">
+              <PropertyRef Name="secondParticipantId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Participants_Status">
+          <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
+          <End Role="Participants" Type="Self.Participant" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="statusNum" />
+            </Principal>
+            <Dependent Role="Participants">
+              <PropertyRef Name="status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MatchMakers" EntityType="Self.MatchMaker" />
+          <EntitySet Name="Meetings" EntityType="Self.Meeting" />
+          <EntitySet Name="Participants" EntityType="Self.Participant" />
+          <EntitySet Name="Status" EntityType="Self.Status" />
+          <AssociationSet Name="FK_Meetings_MatchMaker" Association="Self.FK_Meetings_MatchMaker">
+            <End Role="MatchMaker" EntitySet="MatchMakers" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants" Association="Self.FK_Meetings_Participants">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants1" Association="Self.FK_Meetings_Participants1">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Meetings_Participants2" Association="Self.FK_Meetings_Participants2">
+            <End Role="Participants" EntitySet="Participants" />
+            <End Role="Meetings" EntitySet="Meetings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Participants_Status" Association="Self.FK_Participants_Status">
+            <End Role="Status" EntitySet="Status" />
+            <End Role="Participants" EntitySet="Participants" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="MeetMatchModelStoreContainer" CdmEntityContainer="Entities">
+          <EntitySetMapping Name="MatchMakers">
+            <EntityTypeMapping TypeName="MeetMatchModel.MatchMaker">
+              <MappingFragment StoreEntitySet="MatchMaker">
+                <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+                <ScalarProperty Name="isRegistered" ColumnName="isRegistered" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Meetings">
+            <EntityTypeMapping TypeName="MeetMatchModel.Meeting">
+              <MappingFragment StoreEntitySet="Meetings">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
+                <ScalarProperty Name="firstParticipantId" ColumnName="firstParticipantId" />
+                <ScalarProperty Name="secondParticipantId" ColumnName="secondParticipantId" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Participants">
+            <EntityTypeMapping TypeName="MeetMatchModel.Participant">
+              <MappingFragment StoreEntitySet="Participants">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="origin" ColumnName="origin" />
+                <ScalarProperty Name="resume" ColumnName="resume" />
+                <ScalarProperty Name="mail" ColumnName="mail" />
+                <ScalarProperty Name="phone" ColumnName="phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Status">
+            <EntityTypeMapping TypeName="MeetMatchModel.Status">
+              <MappingFragment StoreEntitySet="Status">
+                <ScalarProperty Name="statusNum" ColumnName="statusNum" />
+                <ScalarProperty Name="statusDesc" ColumnName="statusDesc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

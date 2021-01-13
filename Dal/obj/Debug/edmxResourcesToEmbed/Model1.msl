@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MeetMatchModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="MatchMakers">
+      <EntityTypeMapping TypeName="MeetMatchModel.MatchMaker">
+        <MappingFragment StoreEntitySet="MatchMaker">
+          <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="isRegistered" ColumnName="isRegistered" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Meetings">
+      <EntityTypeMapping TypeName="MeetMatchModel.Meeting">
+        <MappingFragment StoreEntitySet="Meetings">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
+          <ScalarProperty Name="firstParticipantId" ColumnName="firstParticipantId" />
+          <ScalarProperty Name="secondParticipantId" ColumnName="secondParticipantId" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Participants">
+      <EntityTypeMapping TypeName="MeetMatchModel.Participant">
+        <MappingFragment StoreEntitySet="Participants">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="dateOfBirth" ColumnName="dateOfBirth" />
+          <ScalarProperty Name="gender" ColumnName="gender" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="origin" ColumnName="origin" />
+          <ScalarProperty Name="resume" ColumnName="resume" />
+          <ScalarProperty Name="mail" ColumnName="mail" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Status">
+      <EntityTypeMapping TypeName="MeetMatchModel.Status">
+        <MappingFragment StoreEntitySet="Status">
+          <ScalarProperty Name="statusNum" ColumnName="statusNum" />
+          <ScalarProperty Name="statusDesc" ColumnName="statusDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
