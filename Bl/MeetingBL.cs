@@ -20,7 +20,7 @@ namespace Bl
             }
             else
             {
-                throw Exception();
+                throw new InvalidOperationException("At least one participant is already attending another meeting on the date. please schedule on a different date.");
             }
         }
 

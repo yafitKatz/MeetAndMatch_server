@@ -39,5 +39,12 @@ namespace Bl
         {
             return new MatchMaker1(MatchMakerDL.GetMatchMakerById(mmId));
         }
+
+        //AproveMM
+        public static void AproveMM(int mmId)
+        {
+            MatchMakerDL.AproveMM(mmId);
+            return;
+        }
     }
 }

@@ -77,5 +77,16 @@ namespace Dal
                 return db.MatchMakers.ToList();
             }
         }
+
+        //AproveMM
+        public static void AproveMM(int mmId)
+        {
+            using (Entities db = new Entities())
+            {
+                MatchMaker mm = GetMatchMakerById(mmId);
+                mm.isRegistered = true;
+                UpdateMatchMaker(mm);
+            }
+        }
     }
 }
