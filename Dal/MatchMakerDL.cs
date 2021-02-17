@@ -11,17 +11,17 @@ namespace Dal
     {
 
         //Login
-        public static MatchMaker Login(int mmId, string pass)
+        public static MatchMaker Login(string email, string pass)
         {
             try
             {
-                using (Entities db = new Entities())
+                using (MeetAndMatchEntities db = new MeetAndMatchEntities())
                 {
                     //בדיקה אם קיים משתמש בעל כתובת מייל שהוכנסה
-                    Dal.MatchMaker mm= db.MatchMakers.Where(m => m.matchMakerId== mmId).FirstOrDefault();
+                    Dal.MatchMaker mm= db.MatchMakers.Where(m => m.mail == email).FirstOrDefault();
                     if (mm != null)
                         //אם כן- בדיקה אם הסיסמה תואמת
-                        if (mm.password == pass)
+                        if (mm.password == pass && mm.isRegistered == true)
                             return mm;
                     return null;
                 }
@@ -32,19 +32,28 @@ namespace Dal
             }
         }
 
+        //GET UNAPPROVED LIST
+        public static List<MatchMaker> GetUnapprovedMM(){
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+            {
+                return db.MatchMakers.Where(mm => mm.isRegistered==false).ToList();
+            }
+        }
+
         //Add
         public static void AddMatchMaker(MatchMaker MatchMaker)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.MatchMakers.Add(MatchMaker);
                 db.SaveChanges();
             }
         }
+
         //Update
         public static void UpdateMatchMaker(MatchMaker MatchMaker)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(MatchMaker).State = EntityState.Modified;
                 db.SaveChanges();
@@ -54,17 +63,18 @@ namespace Dal
         //Delete
         public static void DeleteMatchMaker(MatchMaker MatchMaker)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(MatchMaker).State = EntityState.Deleted;
                 db.MatchMakers.Remove(MatchMaker);
                 db.SaveChanges();
             }
         }
+
         //GetById
         public static MatchMaker GetMatchMakerById(int MatchMakerid)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.MatchMakers.Where(i => i.matchMakerId == MatchMakerid).FirstOrDefault();
             }
@@ -72,7 +82,7 @@ namespace Dal
         //GetAll
         public static List<MatchMaker> GetAllMatchMakers()
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.MatchMakers.ToList();
             }
@@ -81,7 +91,7 @@ namespace Dal
         //AproveMM
         public static void AproveMM(int mmId)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 MatchMaker mm = GetMatchMakerById(mmId);
                 mm.isRegistered = true;

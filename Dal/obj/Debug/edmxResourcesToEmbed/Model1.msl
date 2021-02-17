@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="MeetMatchModelStoreContainer" CdmEntityContainer="Entities">
+  <EntityContainerMapping StorageEntityContainer="MeetAndMatchModelStoreContainer" CdmEntityContainer="MeetAndMatchEntities">
     <EntitySetMapping Name="MatchMakers">
-      <EntityTypeMapping TypeName="MeetMatchModel.MatchMaker">
+      <EntityTypeMapping TypeName="MeetAndMatchModel.MatchMaker">
         <MappingFragment StoreEntitySet="MatchMaker">
           <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
           <ScalarProperty Name="userName" ColumnName="userName" />
@@ -14,7 +14,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Meetings">
-      <EntityTypeMapping TypeName="MeetMatchModel.Meeting">
+      <EntityTypeMapping TypeName="MeetAndMatchModel.Meeting">
         <MappingFragment StoreEntitySet="Meetings">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
@@ -26,7 +26,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Participants">
-      <EntityTypeMapping TypeName="MeetMatchModel.Participant">
+      <EntityTypeMapping TypeName="MeetAndMatchModel.Participant">
         <MappingFragment StoreEntitySet="Participants">
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -42,7 +42,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Status">
-      <EntityTypeMapping TypeName="MeetMatchModel.Status">
+      <EntityTypeMapping TypeName="MeetAndMatchModel.Status">
         <MappingFragment StoreEntitySet="Status">
           <ScalarProperty Name="statusNum" ColumnName="statusNum" />
           <ScalarProperty Name="statusDesc" ColumnName="statusDesc" />

@@ -25,6 +25,7 @@ namespace finalProject.Models
         [StringLength(20)]
         public string password { get; set; }
 
+        [Required]
         [StringLength(50)]
         public string mail { get; set; }
 

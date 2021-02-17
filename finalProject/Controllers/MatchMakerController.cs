@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Bl;
 using Dto;
 
@@ -14,14 +15,36 @@ namespace finalProject.Controllers
     {
         //login
         [HttpGet]
-        [Route("Login/{mmId}/{pass}")]
-        public IHttpActionResult Login(int mmId, string pass)
+        [Route("Login/{email}/{pass}")]
+        public IHttpActionResult Login(string email, string pass)
         {
-            var mm = Bl.MatchMakerBL.Login(mmId, pass);
-            if (mm != null)
-                return Ok(mm);
-            else
+            try
+            {
+                var mm = Bl.MatchMakerBL.Login(email, pass);
+                if (mm != null)
+                    return Ok(mm);
+                else
+                    return NotFound();
+            }
+            catch
+            {
+                return Conflict();
+            }
+        }
+
+        //GetUnapprovedMatchmakers
+        [HttpGet]
+        [Route("GetUnapprovedMM")]
+        public IHttpActionResult GetUnapprovedMM()
+        {
+            try
+            {
+                return Ok(MatchMakerBL.GetUnapprovedMM());
+            }
+            catch
+            {
                 return NotFound();
+            }
         }
 
 
@@ -32,7 +55,23 @@ namespace finalProject.Controllers
         {
             try
             {
-                return Ok(MatchMakerBL.GetMatchMakerById(mmId));
+                return Ok(Bl.MatchMakerBL.GetMatchMakerById(mmId));
+            }
+            catch
+            {
+                return NotFound();
+            }
+        }
+
+        // ApproveMatchmaker
+        [HttpGet]
+        [Route("ApproveMatchmaker/{mmId}")]
+        public IHttpActionResult ApproveMM(int mmId)
+        {
+            try
+            {
+                MatchMakerBL.AproveMM(mmId);
+                return Ok();
             }
             catch
             {
@@ -76,10 +115,12 @@ namespace finalProject.Controllers
         // DELETE: api/Users/5
         [HttpPut]
         [Route("deleteMatchMaker/{id}")]
-        public IHttpActionResult Delete(int id, [FromBody] MatchMaker1 mm)
+        //public IHttpActionResult Delete(int id, [FromBody] MatchMaker1 mm)
+        public IHttpActionResult Delete(int id)
         {
             try
             {
+                MatchMaker1 mm = MatchMakerBL.GetMatchMakerById(id);
                 MatchMakerBL.DeleteMatchMaker(mm);
                 return Ok();
             }

@@ -4,16 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c12e3a5560bc4434a237e3b5eb630bc6" Name="Diagram1">
-        <EntityTypeShape EntityType="MeetMatchModel.MatchMaker" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="MeetMatchModel.Meeting" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="MeetMatchModel.Participant" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="MeetMatchModel.Status" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <AssociationConnector Association="MeetMatchModel.FK_Meetings_MatchMaker" ManuallyRouted="false" />
-        <AssociationConnector Association="MeetMatchModel.FK_Meetings_Participants" ManuallyRouted="false" />
-        <AssociationConnector Association="MeetMatchModel.FK_Meetings_Participants1" ManuallyRouted="false" />
-        <AssociationConnector Association="MeetMatchModel.FK_Meetings_Participants2" ManuallyRouted="false" />
-        <AssociationConnector Association="MeetMatchModel.FK_Participants_Status" ManuallyRouted="false" />
+      <Diagram DiagramId="d45c8db46fa84967b9e3d5dda9884841" Name="Diagram1">
+        <EntityTypeShape EntityType="MeetAndMatchModel.MatchMaker" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeetAndMatchModel.Meeting" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeetAndMatchModel.Participant" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MeetAndMatchModel.Status" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <AssociationConnector Association="MeetAndMatchModel.FK_Meetings_MatchMaker" ManuallyRouted="false" />
+        <AssociationConnector Association="MeetAndMatchModel.FK_Meetings_Participants" ManuallyRouted="false" />
+        <AssociationConnector Association="MeetAndMatchModel.FK_Meetings_Participants1" ManuallyRouted="false" />
+        <AssociationConnector Association="MeetAndMatchModel.FK_Meetings_Participants2" ManuallyRouted="false" />
+        <AssociationConnector Association="MeetAndMatchModel.FK_Participants_Status" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

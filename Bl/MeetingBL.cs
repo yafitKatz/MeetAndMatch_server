@@ -41,6 +41,11 @@ namespace Bl
             return new Meeting1(MeetingDL.GetMeetingById(mId));
         }
 
+        public static List<Meeting1> GetAllMeetings()
+        {
+            List<Meeting> lst = MeetingDL.GetAllMeetings();
+            return Dto.Meeting1.ConvertToListDto(lst);
+        }
 
         public static List<Meeting1> GetMeetingsByMMID(int mmId)
         {

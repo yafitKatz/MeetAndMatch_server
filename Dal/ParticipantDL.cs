@@ -12,16 +12,23 @@ namespace Dal
         //Add
         public static void AddParticipant(Participant Participant)
         {
-            using (Entities db = new Entities())
+            try
             {
-                db.Participants.Add(Participant);
-                db.SaveChanges();
+                using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+                {
+                    db.Participants.Add(Participant);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception e)
+            {
+                string s = "";
             }
         }
         //Update
         public static void UpdateParticipant(Participant Participant)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(Participant).State = EntityState.Modified;
                 db.SaveChanges();
@@ -31,7 +38,7 @@ namespace Dal
         //Delete
         public static void DeleteParticipant(Participant Participant)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(Participant).State = EntityState.Deleted;
                 db.Participants.Remove(Participant);
@@ -41,17 +48,33 @@ namespace Dal
         //GetById
         public static Participant GetParticipantById(int ParticipantId)
         {
-            using (Entities db = new Entities())
+            try
             {
-                return db.Participants.Where(i => i.id == ParticipantId).FirstOrDefault();
+                using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+                {
+                    return db.Participants.Where(i => i.id == ParticipantId).FirstOrDefault();
+                }
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
         //GetAll
         public static List<Participant> GetAllParticipants()
         {
-            using (Entities db = new Entities())
+            try
             {
-                return db.Participants.ToList();
+                using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+                {
+                    return db.Participants.ToList();
+                }
+            }
+            catch (Exception e)
+            {
+
+                return null;
             }
         }
     }

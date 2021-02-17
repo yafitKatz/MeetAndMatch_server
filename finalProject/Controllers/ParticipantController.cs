@@ -21,9 +21,9 @@ namespace finalProject.Controllers
         }
 
 
-        //GetMeetingById
+        //GetParticipantById
         [HttpGet]
-        [Route("GetParticipantById/{mId}")]
+        [Route("GetParticipantById/{pId}")]
         public IHttpActionResult GetById(int pId)
         {
             try
@@ -46,8 +46,9 @@ namespace finalProject.Controllers
                 ParticipantBL.AddParticipant(p);
                 return Ok();
             }
-            catch
+            catch(Exception err)
             {
+                Console.WriteLine(err.Message);
                 return Conflict();
             }
         }

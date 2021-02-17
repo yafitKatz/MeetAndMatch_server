@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MeetMatchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="MeetAndMatchModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="MatchMaker">
           <Key>
             <PropertyRef Name="matchMakerId" />
@@ -109,7 +109,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="MeetMatchModelStoreContainer">
+        <EntityContainer Name="MeetAndMatchModelStoreContainer">
           <EntitySet Name="MatchMaker" EntityType="Self.MatchMaker" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Meetings" EntityType="Self.Meetings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Participants" EntityType="Self.Participants" Schema="dbo" store:Type="Tables" />
@@ -139,7 +139,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="MeetMatchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="MeetAndMatchModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="MatchMaker">
           <Key>
             <PropertyRef Name="matchMakerId" />
@@ -254,7 +254,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="MeetAndMatchEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="MatchMakers" EntityType="Self.MatchMaker" />
           <EntitySet Name="Meetings" EntityType="Self.Meeting" />
           <EntitySet Name="Participants" EntityType="Self.Participant" />
@@ -285,9 +285,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="MeetMatchModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="MeetAndMatchModelStoreContainer" CdmEntityContainer="MeetAndMatchEntities">
           <EntitySetMapping Name="MatchMakers">
-            <EntityTypeMapping TypeName="MeetMatchModel.MatchMaker">
+            <EntityTypeMapping TypeName="MeetAndMatchModel.MatchMaker">
               <MappingFragment StoreEntitySet="MatchMaker">
                 <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
                 <ScalarProperty Name="userName" ColumnName="userName" />
@@ -299,7 +299,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Meetings">
-            <EntityTypeMapping TypeName="MeetMatchModel.Meeting">
+            <EntityTypeMapping TypeName="MeetAndMatchModel.Meeting">
               <MappingFragment StoreEntitySet="Meetings">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="matchMakerId" ColumnName="matchMakerId" />
@@ -311,7 +311,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Participants">
-            <EntityTypeMapping TypeName="MeetMatchModel.Participant">
+            <EntityTypeMapping TypeName="MeetAndMatchModel.Participant">
               <MappingFragment StoreEntitySet="Participants">
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="firstName" ColumnName="firstName" />
@@ -327,7 +327,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Status">
-            <EntityTypeMapping TypeName="MeetMatchModel.Status">
+            <EntityTypeMapping TypeName="MeetAndMatchModel.Status">
               <MappingFragment StoreEntitySet="Status">
                 <ScalarProperty Name="statusNum" ColumnName="statusNum" />
                 <ScalarProperty Name="statusDesc" ColumnName="statusDesc" />

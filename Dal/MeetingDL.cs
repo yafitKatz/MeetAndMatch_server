@@ -12,7 +12,7 @@ namespace Dal
         //Add
         public static void AddMeeting(Meeting Meeting)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Meetings.Add(Meeting);
                 db.SaveChanges();
@@ -21,7 +21,7 @@ namespace Dal
         //Update
         public static void UpdateMeeting(Meeting Meeting)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(Meeting).State = EntityState.Modified;
                 db.SaveChanges();
@@ -31,7 +31,7 @@ namespace Dal
         //Delete
         public static void DeleteMeeting(Meeting Meeting)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 db.Entry(Meeting).State = EntityState.Deleted;
                 db.Meetings.Remove(Meeting);
@@ -41,7 +41,7 @@ namespace Dal
         //GetById
         public static Meeting GetMeetingById(int Meetingid)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.Meetings.Where(i => i.id == Meetingid).FirstOrDefault();
             }
@@ -50,7 +50,7 @@ namespace Dal
         //GetAll
         public static List<Meeting> GetAllMeetings()
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.Meetings.ToList();
             }
@@ -59,7 +59,7 @@ namespace Dal
         //GetAllByMMID
         public static List<Meeting> GetMeetingsByMMID(int mmId)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.Meetings.Where(m=> m.matchMakerId==mmId).ToList();
             }
@@ -68,7 +68,7 @@ namespace Dal
         //GetDuplicateMeeting
         public static List<Meeting> GetDuplicateMeeting(Meeting meeting)
         {
-            using (Entities db = new Entities())
+            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
             {
                 return db.Meetings.Where(m => m.date == meeting.date && (m.firstParticipantId == meeting.firstParticipantId || m.secondParticipantId == meeting.secondParticipantId)).ToList();
             }
