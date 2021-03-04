@@ -16,7 +16,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="matchMakerId" Type="Int32" />
     <Property Name="firstParticipantId" Type="Int32" />
     <Property Name="secondParticipantId" Type="Int32" />

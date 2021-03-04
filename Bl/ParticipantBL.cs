@@ -30,7 +30,11 @@ namespace Bl
         //GetById
         public static Participant1 GetParticipantById(int pId)
         {
-            return new Participant1(ParticipantDL.GetParticipantById(pId));
+            Participant newParticipant = ParticipantDL.GetParticipantById(pId);
+            if (newParticipant != null)
+                return new Participant1();
+            else
+                return null;
         }
 
         public static List<Participant1> GetAllParticipants()

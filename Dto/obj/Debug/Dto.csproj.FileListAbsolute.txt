@@ -13,6 +13,7 @@ C:\פרוייקט חיה ויפית\finalProject\Dto\bin\Debug\EntityFramework.S
 C:\פרוייקט חיה ויפית\finalProject\Dto\bin\Debug\Dal.dll.config
 C:\פרוייקט חיה ויפית\finalProject\Dto\bin\Debug\EntityFramework.xml
 C:\פרוייקט חיה ויפית\finalProject\Dto\bin\Debug\EntityFramework.SqlServer.xml
+C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\Dto.dll.config
 C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\Dto.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\Dto.pdb
@@ -24,7 +25,6 @@ C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\Dal.dll.config
 C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\EntityFramework.xml
 C:\yafit\git_MeetAndMatch\finalProject\Dto\bin\Debug\EntityFramework.SqlServer.xml
 C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
-C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
 C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.csproj.CopyComplete
 C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dto\obj\Debug\Dto.pdb

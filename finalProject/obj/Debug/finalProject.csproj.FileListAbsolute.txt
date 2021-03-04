@@ -99,10 +99,8 @@ C:\פרוייקט חיה ויפית\finalProject\finalProject\bin\System.Web.Htt
 C:\פרוייקט חיה ויפית\finalProject\finalProject\bin\Dal.dll
 C:\פרוייקט חיה ויפית\finalProject\finalProject\bin\Dal.pdb
 C:\פרוייקט חיה ויפית\finalProject\finalProject\bin\Dal.dll.config
-C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.csprojAssemblyReference.cache
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.csproj.CoreCompileInputs.cache
-C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.dll
-C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.pdb
+C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.csprojAssemblyReference.cache
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\finalProject.dll.config
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\finalProject.dll
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\finalProject.pdb
@@ -200,3 +198,5 @@ C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\Microsoft.CodeDom.Provid
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\Dal.pdb
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\bin\Dal.dll.config
 C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.csproj.CopyComplete
+C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.dll
+C:\yafit\git_MeetAndMatch\finalProject\finalProject\obj\Debug\finalProject.pdb

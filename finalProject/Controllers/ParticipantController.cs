@@ -28,12 +28,22 @@ namespace finalProject.Controllers
         {
             try
             {
-                return Ok(ParticipantBL.GetParticipantById(pId));
+                Participant1 participant = ParticipantBL.GetParticipantById(pId);
+                if (participant != null)
+                {
+                    return Ok(ParticipantBL.GetParticipantById(pId));
+                }
+                else
+                {
+                    return NotFound();
+                }
             }
-            catch
+            catch(Exception err)
             {
-                return NotFound();
+                Console.WriteLine(err.Message);
+                return Conflict();
             }
+            
         }
 
         //post
@@ -44,7 +54,7 @@ namespace finalProject.Controllers
             try
             {
                 ParticipantBL.AddParticipant(p);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
             catch(Exception err)
             {
@@ -62,7 +72,7 @@ namespace finalProject.Controllers
             try
             {
                 ParticipantBL.UpdateParticipant(p);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
             catch
             {
@@ -78,10 +88,11 @@ namespace finalProject.Controllers
             try
             {
                 ParticipantBL.DeleteParticipant(p);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch(Exception e)
             {
+                Console.WriteLine(e.Message);
                 return Conflict();
             }
         }
@@ -93,11 +104,11 @@ namespace finalProject.Controllers
         {
             try
             {
-            return Ok(ParticipantBL.GetAllAbandonedParticipants());
+                return Ok(ParticipantBL.GetAllAbandonedParticipants());
             }
             catch
             {
-            return Conflict();
+                return Conflict();
             }
         }
     }

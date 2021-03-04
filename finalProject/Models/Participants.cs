@@ -34,7 +34,7 @@ namespace finalProject.Models
         [StringLength(10)]
         public string origin { get; set; }
 
-        [StringLength(50)]
+        [StringLength(100)]
         public string resume { get; set; }
 
         [StringLength(50)]

@@ -10,6 +10,7 @@ C:\פרוייקט חיה ויפית\finalProject\Dal\bin\Debug\EntityFramework.S
 C:\פרוייקט חיה ויפית\finalProject\Dal\bin\Debug\EntityFramework.xml
 C:\פרוייקט חיה ויפית\finalProject\Dal\bin\Debug\EntityFramework.SqlServer.xml
 C:\פרוייקט חיה ויפית\finalProject\Dal\obj\Debug\Dal.csproj.CopyComplete
+C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\Dal.dll.config
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\Dal.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\Dal.pdb
@@ -17,8 +18,6 @@ C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\EntityFramework.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\EntityFramework.SqlServer.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\EntityFramework.xml
 C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\EntityFramework.SqlServer.xml
-C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csprojAssemblyReference.cache
-C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csproj.CoreCompileInputs.cache
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.pdb

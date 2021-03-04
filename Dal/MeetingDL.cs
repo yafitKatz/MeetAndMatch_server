@@ -12,10 +12,17 @@ namespace Dal
         //Add
         public static void AddMeeting(Meeting Meeting)
         {
-            using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+            try
             {
-                db.Meetings.Add(Meeting);
-                db.SaveChanges();
+                using (MeetAndMatchEntities db = new MeetAndMatchEntities())
+                {
+                    db.Meetings.Add(Meeting);
+                    db.SaveChanges();
+                }
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
             }
         }
         //Update

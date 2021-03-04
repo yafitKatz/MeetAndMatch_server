@@ -15,7 +15,7 @@
     <Key>
       <PropertyRef Name="id" />
     </Key>
-    <Property Name="id" Type="int" Nullable="false" />
+    <Property Name="id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
     <Property Name="matchMakerId" Type="int" />
     <Property Name="firstParticipantId" Type="int" />
     <Property Name="secondParticipantId" Type="int" />

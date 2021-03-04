@@ -26,7 +26,7 @@ namespace finalProject.Controllers
                 else
                     return NotFound();
             }
-            catch
+            catch (Exception e)
             {
                 return Conflict();
             }
@@ -41,7 +41,7 @@ namespace finalProject.Controllers
             {
                 return Ok(MatchMakerBL.GetUnapprovedMM());
             }
-            catch
+            catch (Exception e)
             {
                 return NotFound();
             }
@@ -57,7 +57,7 @@ namespace finalProject.Controllers
             {
                 return Ok(Bl.MatchMakerBL.GetMatchMakerById(mmId));
             }
-            catch
+            catch(Exception e)
             {
                 return NotFound();
             }
@@ -71,9 +71,9 @@ namespace finalProject.Controllers
             try
             {
                 MatchMakerBL.AproveMM(mmId);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception e)
             {
                 return NotFound();
             }
@@ -87,9 +87,9 @@ namespace finalProject.Controllers
             try
             {
                 MatchMakerBL.AddMatchMaker(mm);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception e)
             {
                 return Conflict();
             }
@@ -104,9 +104,9 @@ namespace finalProject.Controllers
             try
             {
                 MatchMakerBL.UpdateMatchMaker(mm);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception e)
             {
                 return NotFound();
             }
@@ -122,9 +122,9 @@ namespace finalProject.Controllers
             {
                 MatchMaker1 mm = MatchMakerBL.GetMatchMakerById(id);
                 MatchMakerBL.DeleteMatchMaker(mm);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception e)
             {
                 return Conflict();
             }

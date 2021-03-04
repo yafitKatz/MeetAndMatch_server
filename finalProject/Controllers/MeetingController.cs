@@ -18,7 +18,8 @@ namespace finalProject.Controllers
         [Route("Meetingslist")]
         public IHttpActionResult GetAllMeetings()
         {
-            return Ok(MeetingBL.GetAllMeetings());
+            List<Meeting1> allMeetings = MeetingBL.GetAllMeetings();
+            return Ok(allMeetings);
         }
 
 
@@ -54,10 +55,11 @@ namespace finalProject.Controllers
             {
                 MeetingBL.AddMeeting(m);
                 // return Ok(MeetingBL.GetMeetingsByMMID(mmId))
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception err)
             {
+                Console.WriteLine(err.Message);
                 return Conflict();
             }
         }
@@ -71,10 +73,11 @@ namespace finalProject.Controllers
             try
             {
                 MeetingBL.UpdateMeeting(m);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch(Exception err)
             {
+                Console.WriteLine(err.Message);
                 return NotFound();
             }
         }
@@ -87,10 +90,11 @@ namespace finalProject.Controllers
             try
             {
                 MeetingBL.DeleteMeeting(m);
-                return Ok();
+                return StatusCode(HttpStatusCode.NoContent);
             }
-            catch
+            catch (Exception err)
             {
+                Console.WriteLine(err.Message);
                 return Conflict();
             }
         }

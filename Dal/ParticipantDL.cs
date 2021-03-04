@@ -57,7 +57,6 @@ namespace Dal
             }
             catch (Exception)
             {
-
                 return null;
             }
         }

@@ -8,7 +8,7 @@ namespace finalProject.Models
 
     public partial class Meetings
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         public int? matchMakerId { get; set; }

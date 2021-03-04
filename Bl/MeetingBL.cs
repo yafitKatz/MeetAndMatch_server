@@ -13,7 +13,7 @@ namespace Bl
         public static void AddMeeting(Meeting1 m)
         {
             List<Meeting> duplicatedMeeting = MeetingDL.GetDuplicateMeeting(Meeting1.ToDal(m));
-            if (duplicatedMeeting == null)
+            if (duplicatedMeeting.Count() < 1 )
             {
                 Meeting newMeeting = Meeting1.ToDal(m);
                 MeetingDL.AddMeeting(newMeeting);
