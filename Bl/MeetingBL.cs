@@ -29,6 +29,17 @@ namespace Bl
             Meeting newMeeting = Meeting1.ToDal(m);
             MeetingDL.DeleteMeeting(newMeeting);
         }
+
+        public static void DeleteParticipantsMeetings(Participant1 p)
+        {
+            List<Meeting1> lst = GetAllMeetings();
+            foreach(Meeting1 m in lst)
+            {
+                if (m.firstParticipantId == p.id || m.secondParticipantId == p.id)
+                    DeleteMeeting(m);
+            }
+        }
+
         //Update
         public static void UpdateMeeting(Meeting1 m)
         {

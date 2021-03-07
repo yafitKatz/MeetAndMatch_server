@@ -14,7 +14,10 @@ namespace Bl
         public static Dto.MatchMaker1 Login(string email, string pass)
         {
             var mm = Dal.MatchMakerDL.Login(email, pass);
-            return new Dto.MatchMaker1(mm);
+            if (mm != null)
+                return new Dto.MatchMaker1(mm);
+            else
+                return null;
         }
 
         //Add

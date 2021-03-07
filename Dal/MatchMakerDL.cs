@@ -18,15 +18,15 @@ namespace Dal
                 using (MeetAndMatchEntities db = new MeetAndMatchEntities())
                 {
                     //בדיקה אם קיים משתמש בעל כתובת מייל שהוכנסה
-                    Dal.MatchMaker mm= db.MatchMakers.Where(m => m.mail == email).FirstOrDefault();
+                    Dal.MatchMaker mm= db.MatchMakers.Where(m => m.mail.Equals(email)).FirstOrDefault();
                     if (mm != null)
                         //אם כן- בדיקה אם הסיסמה תואמת
-                        if (mm.password == pass && mm.isRegistered == true)
+                        if (mm.password.Equals(pass) && mm.isRegistered == true)
                             return mm;
                     return null;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
                 return null;
             }

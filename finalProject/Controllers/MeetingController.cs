@@ -18,8 +18,15 @@ namespace finalProject.Controllers
         [Route("Meetingslist")]
         public IHttpActionResult GetAllMeetings()
         {
-            List<Meeting1> allMeetings = MeetingBL.GetAllMeetings();
-            return Ok(allMeetings);
+            try
+            {
+                List<Meeting1> allMeetings = MeetingBL.GetAllMeetings();
+                return Ok(allMeetings);
+            }
+            catch (Exception e)
+            {
+                return Conflict();
+            }
         }
 
 

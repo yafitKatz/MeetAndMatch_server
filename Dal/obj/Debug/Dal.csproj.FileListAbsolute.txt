@@ -21,3 +21,4 @@ C:\yafit\git_MeetAndMatch\finalProject\Dal\bin\Debug\EntityFramework.SqlServer.x
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csproj.CopyComplete
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.dll
 C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.pdb
+C:\yafit\git_MeetAndMatch\finalProject\Dal\obj\Debug\Dal.csprojAssemblyReference.cache

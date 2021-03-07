@@ -87,6 +87,7 @@ namespace finalProject.Controllers
         {
             try
             {
+                MeetingBL.DeleteParticipantsMeetings(p);
                 ParticipantBL.DeleteParticipant(p);
                 return StatusCode(HttpStatusCode.NoContent);
             }
