@@ -61,13 +61,12 @@ namespace finalProject.Controllers
             try
             {
                 MeetingBL.AddMeeting(m);
-                // return Ok(MeetingBL.GetMeetingsByMMID(mmId))
                 return StatusCode(HttpStatusCode.NoContent);
             }
             catch (Exception err)
             {
                 Console.WriteLine(err.Message);
-                return Conflict();
+                return InternalServerError();
             }
         }
 

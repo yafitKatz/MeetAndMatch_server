@@ -24,7 +24,7 @@ namespace finalProject.Controllers
                 if (mm != null)
                     return Ok(mm);
                 else
-                    return NotFound();
+                    return Ok(mm);
             }
             catch (Exception e)
             {
@@ -75,6 +75,7 @@ namespace finalProject.Controllers
             }
             catch (Exception e)
             {
+                Console.WriteLine(e.Message);
                 return NotFound();
             }
         }
@@ -115,12 +116,12 @@ namespace finalProject.Controllers
         // DELETE: api/Users/5
         [HttpPut]
         [Route("deleteMatchMaker/{id}")]
-        //public IHttpActionResult Delete(int id, [FromBody] MatchMaker1 mm)
-        public IHttpActionResult Delete(int id)
+        public IHttpActionResult Delete(int id, [FromBody] MatchMaker1 mm)
+        //public IHttpActionResult Delete(int id)
         {
             try
             {
-                MatchMaker1 mm = MatchMakerBL.GetMatchMakerById(id);
+                //MatchMaker1 mm = MatchMakerBL.GetMatchMakerById(id);
                 MatchMakerBL.DeleteMatchMaker(mm);
                 return StatusCode(HttpStatusCode.NoContent);
             }

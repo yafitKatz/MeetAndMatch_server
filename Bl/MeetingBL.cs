@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Dto;
 using Dal;
+using System.Net;
+using System.Net.Mail;
 
 namespace Bl
 {
@@ -13,10 +15,13 @@ namespace Bl
         public static void AddMeeting(Meeting1 m)
         {
             List<Meeting> duplicatedMeeting = MeetingDL.GetDuplicateMeeting(Meeting1.ToDal(m));
-            if (duplicatedMeeting.Count() < 1 )
+            if (duplicatedMeeting.Count() < 1)
             {
                 Meeting newMeeting = Meeting1.ToDal(m);
                 MeetingDL.AddMeeting(newMeeting);
+                string id = "12345678";
+                // Send a notification email to the participants with the meeting's details
+                ParticipantBL.SendEmail(id, newMeeting);
             }
             else
             {
@@ -24,7 +29,7 @@ namespace Bl
             }
         }
 
-        public static void DeleteMeeting(Meeting1 m)
+public static void DeleteMeeting(Meeting1 m)
         {
             Meeting newMeeting = Meeting1.ToDal(m);
             MeetingDL.DeleteMeeting(newMeeting);
@@ -71,6 +76,5 @@ namespace Bl
                                          .ToList();
             return Dto.Meeting1.ConvertToListDto(lst);
         }
-
     }
 }
